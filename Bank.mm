@@ -27,4 +27,12 @@
 	}
 }
 
+-(id) getAccountByName: (NSString *) accountName {
+	for (id obj in _accounts) {
+		if ([[obj name] isEqual: accountName])
+			return (Account *) obj;
+	}
+	return (Account *) nil;
+}
+
 @end

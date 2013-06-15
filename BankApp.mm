@@ -2,13 +2,13 @@
 
 #import "Bank.h"
 #import "Customer.h"
-
+#import "Account.h"
 
 void listAccounts(NSMutableArray *accounts) {
 	std::cout << "Account List" << std::endl << "------------" << std::endl;
-	[accounts enumerateObjectsUsingBlock: ^(id obj, NSUInteger idx, BOOL *stop) {
-		std::cout << [[obj name] UTF8String] << std::endl;
-	}];
+	for (id obj in accounts) {
+		std::cout << [[obj name] UTF8String] << std::endl;		
+	}
 }
 
 int main(int argc, char**argv) {
@@ -22,4 +22,14 @@ int main(int argc, char**argv) {
 	[bank openAccountWithName: @"Rhus Ridge Account" forCustomer: pete  withBalance: 32000];
 
 	listAccounts(bank.accounts);
+
+	NSString *accName = @"Wendy's Savings";
+	Account *acct = [bank getAccountByName: accName];
+	if (!acct) {
+		std::cout << "ERROR: couldn't get find account with name " << [accName UTF8String] << std::endl;
+		exit(1);
+	} else {
+		std::cout << "Here's the balance of Wendy's Savings: " << [acct balance] << std::endl;
+	}
+
 }

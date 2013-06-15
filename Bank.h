@@ -14,4 +14,5 @@
 				forCustomer: (Customer *) customer
 				withBalance: (long) balance;
 
+-(id) getAccountByName: (NSString *) accountName;
 @end
