@@ -4,12 +4,6 @@
 #import "Customer.h"
 #import "Account.h"
 
-void listAccounts(NSMutableArray *accounts) {
-	std::cout << "Account List" << std::endl << "------------" << std::endl;
-	for (id obj in accounts) {
-		std::cout << [[obj name] UTF8String] << std::endl;		
-	}
-}
 
 int main(int argc, char**argv) {
 	Bank *bank = [[Bank alloc] initWithName: @"First Bank of Pete"];
@@ -21,7 +15,7 @@ int main(int argc, char**argv) {
 	[bank openAccountWithName: @"Wendy's Savings"    forCustomer: wendy withBalance: 80000];
 	[bank openAccountWithName: @"Rhus Ridge Account" forCustomer: pete  withBalance: 32000];
 
-	listAccounts(bank.accounts);
+	std::cout << [[bank description] UTF8String] << std::endl;
 
 	NSString *accName = @"Wendy's Savings";
 	Account *acct = [bank getAccountByName: accName];

@@ -52,4 +52,13 @@ static AccountIdType nextAccountId = 1000;
 	return (Account *) nil;
 }
 
+-(NSString *) description {
+	NSMutableString *result = [NSMutableString stringWithString: _name];
+	[result appendString: @"\n------------\n"];
+	for (id obj in _accounts) {
+		[result appendFormat: @"%@\n", [obj description]];
+	}
+	return result;
+}
+
 @end

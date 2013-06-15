@@ -18,9 +18,13 @@
 		_name = name;
 		_customer = customer;
 		_balance = balance;
-		NSLog(@"Opened Account: %@ for customer %@ with balance $%ld", _name, _customer.name, _balance);
+		NSLog(@"Opened Account %@", [self description]);
 	}
 	return self;
+}
+
+-(NSString *) description {
+	return [NSString stringWithFormat: @"#%ld (%@) for customer %@ with balance $%ld", _accountId, _name, _customer.name, _balance];
 }
 
 @end
