@@ -16,7 +16,7 @@
 	return self;
 }
 
--(Account *) newAccountWithName: (NSString *) newAccountName
+-(void) openAccountWithName: (NSString *) newAccountName
 				    forCustomer: (Customer *) customer
 				    withBalance: (long) balance {
 	Account *newAccount = [[Account alloc] initWithName: newAccountName
@@ -25,8 +25,6 @@
 	if (newAccount) {
 		[_accounts addObject: newAccount];
 	}
-	return newAccount;
-
 }
 
 @end

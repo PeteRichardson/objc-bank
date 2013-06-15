@@ -10,7 +10,7 @@
 
 -(id) initWithName: (NSString *) name;
 
--(Account *) newAccountWithName: (NSString *) newAccountName
+-(void) openAccountWithName: (NSString *) newAccountName
 				forCustomer: (Customer *) customer
 				withBalance: (long) balance;
 
