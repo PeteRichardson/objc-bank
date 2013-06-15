@@ -1,9 +1,10 @@
 #import <iostream>
 
 #import "Bank.h"
+#import "Customer.h"
 
 int main(int argc, char**argv) {
-
 	Bank *bank = [[Bank alloc] initWithName: @"First Bank of Pete"];
-	std::cout << "Created Bank: " << [bank.name UTF8String] << std::endl;
+	Customer *pete = [[Customer alloc] initWithName: @"Pete Richardson"];
+	Account *peteschecking = [bank newAccountWithName: @"Pete's Checking" forCustomer: pete withBalance: 5000];
 }
