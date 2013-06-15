@@ -17,13 +17,13 @@ int main(int argc, char**argv) {
 
 	std::cout << [[bank description] UTF8String] << std::endl;
 
-	NSString *accName = @"Wendy's Savings";
-	Account *acct = [bank getAccountByName: accName];
+	AccountIdType myId = 1000;
+	Account *acct = [bank getAccountById: myId];
 	if (!acct) {
-		std::cout << "ERROR: couldn't get find account with name " << [accName UTF8String] << std::endl;
+		std::cout << "ERROR: couldn't get find account with id " << myId << std::endl;
 		exit(1);
 	} else {
-		std::cout << "Here's the balance of Wendy's Savings: " << [acct balance] << std::endl;
+		std::cout << "Here's the balance of account with id " << myId << ": $" << [acct balance] << std::endl;
 	}
 
 }
