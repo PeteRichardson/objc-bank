@@ -18,9 +18,8 @@ int main(int argc, char**argv) {
 								withBalance: 32000];
 
 	std::cout << "Account List" << std::endl << "------------" << std::endl;
-	for (int i = 0; i < [bank.accounts count]; i++) {
-		Account *acc = bank.accounts[i];
-		std::cout << [[acc name] UTF8String] << std::endl;
-	}
+	[bank.accounts enumerateObjectsUsingBlock: ^(id obj, NSUInteger idx, BOOL *stop) {
+		std::cout << [[obj name] UTF8String] << std::endl;
+	}];
 
 }
