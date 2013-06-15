@@ -17,7 +17,7 @@ static AccountIdType nextAccountId = 1000;
 -(id) initWithName: (NSString *) name {
 	if (self = [super init]) {
 		_name = name;
-		_accounts = [[NSMutableArray alloc] init];
+		_accounts = [[NSMutableDictionary alloc] init];
 		NSLog(@"Created Bank: %@", _name);
 	}	
 	return self;
@@ -32,7 +32,7 @@ static AccountIdType nextAccountId = 1000;
 											withBalance: balance
 											andAccountId: newAccountId];
 	if (newAccount) {
-		[_accounts addObject: newAccount];
+		[_accounts setObject: newAccount forKey: [NSNumber numberWithUnsignedLong: newAccountId]];
 	}
 }
 
@@ -45,17 +45,13 @@ static AccountIdType nextAccountId = 1000;
 }
 
 -(id) getAccountById: (AccountIdType) accountId {
-	for (id obj in _accounts) {
-		if ([obj accountId] == accountId)
-			return (Account *) obj;
-	}
-	return (Account *) nil;
+	return [_accounts objectForKey: [NSNumber numberWithUnsignedLong: accountId]];
 }
 
 -(NSString *) description {
 	NSMutableString *result = [NSMutableString stringWithString: _name];
 	[result appendString: @"\n------------\n"];
-	for (id obj in _accounts) {
+	for (id obj in [_accounts allValues]) {
 		[result appendFormat: @"%@\n", [obj description]];
 	}
 	return result;

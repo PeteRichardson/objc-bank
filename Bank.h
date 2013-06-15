@@ -8,7 +8,7 @@ typedef unsigned long AccountIdType;
 @interface Bank: NSObject 
 
 @property (strong) NSString *name;
-@property (strong) NSMutableArray *accounts;
+@property (strong) NSMutableDictionary *accounts;
 
 -(id) initWithName: (NSString *) name;
 
