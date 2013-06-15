@@ -1,5 +1,14 @@
-#import <iostream>
+#import "Bank.h"
 
-int main(int argc, char**argv) {
-	std::cout << "Hello, World!" << std::endl;
+@implementation Bank
+
+@synthesize name = _name;
+
+-(id) initWithName: (NSString *) name {
+	if (self = [super init]) {
+		_name = name;
+	}	
+	return self;
 }
+
+@end

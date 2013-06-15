@@ -11,7 +11,7 @@ CXXFLAGS += -g -O0 -x objective-c++ -arch x86_64
 	$(CXX) -c $(CFLAGS) $(CXXFLAGS) $< -o $@
 
 BankApp: $(OBJS)
-	$(CXX) -o $@ $<
+	$(CXX) -o $@ $^ -framework Foundation
 
 clean:
 	@rm -f $(OBJS)
