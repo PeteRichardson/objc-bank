@@ -3,6 +3,7 @@
 
 @implementation Account
 
+@synthesize accountId = _accountId;
 @synthesize name = _name;
 @synthesize customer = _customer;
 @synthesize balance = _balance;
@@ -10,8 +11,10 @@
 
 -(id) initWithName: (NSString *) name
 	   forCustomer: (Customer *) customer
-	   withBalance: (long)       balance {
+	   withBalance: (long)       balance 
+	   andAccountId: (unsigned long) accountId {
 	if (self = [super init]) {
+		_accountId = accountId;
 		_name = name;
 		_customer = customer;
 		_balance = balance;

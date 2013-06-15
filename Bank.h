@@ -3,7 +3,9 @@
 @class Customer;
 @class Account;
 
-@interface Bank: NSObject
+typedef unsigned long AccountIdType;
+
+@interface Bank: NSObject 
 
 @property (strong) NSString *name;
 @property (strong) NSMutableArray *accounts;
@@ -15,4 +17,5 @@
 				withBalance: (long) balance;
 
 -(id) getAccountByName: (NSString *) accountName;
+-(id) getAccountById: (AccountIdType) accountId;
 @end
